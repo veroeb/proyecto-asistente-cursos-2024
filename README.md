@@ -1,1 +1,1 @@
-# proyecto-asistente-cursos-2024
+# Proyecto Asistente Virtual para Cursos 2024
