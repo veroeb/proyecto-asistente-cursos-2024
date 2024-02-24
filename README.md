@@ -16,6 +16,19 @@ Getting requirements to build editable ... error
 Debemos eliminar la carpeta instance que se creo al correr el comando flask --app flaskr init-db
 
 # 🔨  Herramientas utilizadas en proyecto 🔨
+## Configuracion de IDE pyCharm
+1. Configurar el interpreter de Python: Dirigirse a File->Settings->Project->Python
+   interpreter -> Add interpreter -> Add local interpreter -> System Interpreter y
+   seleccionamos ``` Pyhton 3.9 ```.
+2. Configurar Code Quality : File -> Settings -> Editor -> Code Style -> Python:
+   1. Tabs and Indents:
+      - Tab size: 2
+      - Indent: 2
+      - Continuation indent: 4
+   2. Wrapping and Braces
+      - Hard wrap at: 89
+
+
 ## Calidad de código
 
 ### Pre-Commit
@@ -24,7 +37,7 @@ Los Hooks que utilizaremos para poder identificar y tener una revision de codigo
 Para ello deberemos utilizar el siguiente comando de installacion de pre-commit: ``` pip install pre-commit ```
 Esto sera suficiente para que al momento que cualquier desarrollador intente hacer un commit se ejecute el
 archivo ``` .pre-commit-config.yaml ```
-En este archivo se encuentran algunos complementos como:
+En este archivo se encuentran algunos complementos adicionales como:
 - [Flake8](https://flake8.pycqa.org/en/latest/)
 
 Si realizamos algun cambio en el archivo ``` .pre-commit-config.yaml ``` recordemos que debemos poner el siguiente comando
