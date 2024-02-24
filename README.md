@@ -41,5 +41,3 @@ para actualizar ``` pre-commit autoupdate ```
 
 Webgafia:
 1. https://pre-commit.com/
-
-
