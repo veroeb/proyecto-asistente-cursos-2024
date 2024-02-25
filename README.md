@@ -41,7 +41,7 @@ En este archivo se encuentran algunos complementos adicionales como:
 - [Flake8](https://flake8.pycqa.org/en/latest/)
 
 Si realizamos algun cambio en el archivo ``` .pre-commit-config.yaml ``` recordemos que debemos poner el siguiente comando
-para actualizar ``` pre-commit autoupdate ```
+para actualizar ``` pre-commit autoupdate ``` y ``` pre-commit run --all-files ```
 
 
 Webgafia:
