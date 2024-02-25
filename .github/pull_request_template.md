@@ -1,10 +1,6 @@
 # Description
 
-[Detailed description of the changes introduced in this PR.]
-
-## Related Issue or Task
-
-[Link to the related issue or task in the issue tracking system, if applicable.]
+[Ticket 123 - Jira](https://asistente-virtual-para-cursos-2024.atlassian.net/browse/AVPC2-123)
 
 ## Proposed Changes
 
@@ -32,11 +28,3 @@
 - [ ] Unit tests pass locally with my changes.
 - [ ] I have tested this code in different environments.
 - [ ] I have updated the documentation as necessary.
-
-## Additional Comments (if any)
-
-[Any additional information that may be relevant for reviewers.]
-
-## Assigned
-
-[Mention assigned reviewers if you have already assigned someone or leave it blank for reviewers to be automatically assigned.]
