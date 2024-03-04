@@ -10,7 +10,7 @@ from flaskr.db import get_db
 bp = Blueprint('task', __name__, url_prefix='/task')  ## Creates a blueprint named 'task'
 
 
-@bp.route('/text', methods='GET')
+@bp.route('/text', methods=['GET'])
 def text_correction():
     if request.method == 'GET':
         text = request.form['text']
