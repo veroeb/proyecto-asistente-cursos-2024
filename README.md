@@ -15,7 +15,7 @@
   ```
 2- If the local database is not created, execute the following command:
   ```
-  flask --app flaskr init-db`
+  flask --app flaskr init-db
   ```
 
 3- Navigate to the flaskr folder using the command:
