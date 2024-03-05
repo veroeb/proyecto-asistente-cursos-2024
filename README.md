@@ -1,47 +1,44 @@
 # Proyecto Asistente Virtual para Cursos 2024
 
-Para hacer el proyecto ejecutable debemos correr el siguiente comando:
-pip install -e .
+# 👣 Steps to Set Up the Project Locally 👣
 
-Si nos da un error del tipo:
-Getting requirements to build editable ... error
-  error: subprocess-exited-with-error
-  ...
-  error: Multiple top-level packages discovered in a flat-layout: ['flaskr', 'instance'].
-
-Debemos eliminar la carpeta instance que se creo al correr el comando flask --app flaskr init-db
-
-# Pasos para levantar el proyecto de forma local:
-
-1- Verificar que al ejecutar el comando `flask --version` obtengamos algo similar a la siguiente respuesta:
+1- Verify that running the command flask --version yields a response similar to the following::
   ```
   Python 3.12.1
   Flask 3.0.2
   Werkzeug 3.0.1
   ```
 
-  En caso de no obtener esta respuesta, ejecutar `pip install flask`
+  If this response is not obtained, run
+  ```
+  pip install flask
+  ```
+2- If the local database is not created, execute the following command:
+  ```
+  flask --app flaskr init-db`
+  ```
 
-2- Si no tenemos la DB creada de forma local, ejecutar el siguiente comando:
-  `flask --app flaskr init-db`
+3- Navigate to the flaskr folder using the command:
+  ```
+  cd flaskr
+  ```
 
-3- Ingresar a la carpeta flaskr mediante el comando:
-  `cd flaskr`
+4- Finally, execute the following command:
+  ```
+  flask --app __init__ run
+  ```
 
-4- Finalmente, ejecutar el siguiente comando:
-  `flask --app __init__ run`
+The project will be deployed to a local URL, allowing us to make calls to the corresponding services.
 
-  Se desplegar el proyecto en una URL local, donde podemos hacer llamadas a los correspondientes servicios.
+## Testing
+To test properly, you must first register and then log in from the login screen.
 
-# Pruebas
-Para poder probar correctamente, primero debes registrarte y luego ingresar desde la pantalla de login.
-
-# 🔨  Herramientas utilizadas en proyecto 🔨
-## Configuracion de IDE pyCharm
-1. Configurar el interpreter de Python: Dirigirse a File->Settings->Project->Python
-   interpreter -> Add interpreter -> Add local interpreter -> System Interpreter y
-   seleccionamos ``` Pyhton 3.9 ```.
-2. Configurar Code Quality : File -> Settings -> Editor -> Code Style -> Python:
+# 🔨 Tools Used in the Project 🔨
+## Configuration of pyCharm IDE
+1. Configure the Python interpreter:
+   Navigate to File -> Settings -> Project -> Python interpreter -> Add interpreter ->
+   Add local interpreter -> System Interpreter, and select  ``` Pyhton 3.9 ```.
+2. Configure Code Quality: Go to File -> Settings -> Editor -> Code Style -> Python:
    1. Tabs and Indents:
       - Tab size: 2
       - Indent: 2
@@ -50,19 +47,18 @@ Para poder probar correctamente, primero debes registrarte y luego ingresar desd
       - Hard wrap at: 89
 
 
-## Calidad de código
-
+# 🎯 Code Quality 🎯
 ### Pre-Commit
-Git hook scripts are useful for identifying simple issues before submission to code review. [1]
-Los Hooks que utilizaremos para poder identificar y tener una revision de codigo durante los commits.
-Para ello deberemos utilizar el siguiente comando de installacion de pre-commit: ``` pip install pre-commit ```
-Esto sera suficiente para que al momento que cualquier desarrollador intente hacer un commit se ejecute el
-archivo ``` .pre-commit-config.yaml ```
-En este archivo se encuentran algunos complementos adicionales como:
+Git hook scripts are useful for identifying simple issues before submission to code
+review. [1] The hooks we will use to identify and review code during commits. To achieve
+this, we should use the following pre-commit installation command: `pip install
+pre-commit`. This will be sufficient so that whenever any developer tries to make a
+commit, the file `.pre-commit-config.yaml` is executed. In this file, there are some
+additional plugins such as:
 - [Flake8](https://flake8.pycqa.org/en/latest/)
 
-Si realizamos algun cambio en el archivo ``` .pre-commit-config.yaml ``` recordemos que debemos poner el siguiente comando
-para actualizar ``` pre-commit autoupdate ``` y ``` pre-commit run --all-files ```
+If we make any changes to the `.pre-commit-config.yaml` file, remember to execute the
+following command to update: `pre-commit autoupdate` and `pre-commit run --all-files`
 
 
 Webgafia:
