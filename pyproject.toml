@@ -16,3 +16,6 @@ testpaths = ["tests"]
 [tool.coverage.run]
 branch = true
 source = ["flaskr"]
+
+[tool.isort]
+profile = "black"
