@@ -1,6 +1,5 @@
 import openai
 from flask import Blueprint, flash, request, jsonify
-import os
 from openai import OpenAI
 from flaskr.db import get_db
 import configparser
@@ -12,35 +11,36 @@ config.read('../config.ini')
 openai.api_key = config['openai']['api_key']
 
 
-# Rúbrica predeterminada
-#predeterminada = "Eres un profesor de un curso de educación intermedia y debes corregir una tarea que te va a pasar el usuario en una escala de 0 a 100 donde 60 es el mínimo de aprobación. Además de la nota debes darle un concepto a la tarea."
+# # Default rubric
+#default_rubric = "Eres un profesor de un curso de educación intermedia y debes corregir una tarea que te va a pasar el usuario en una escala de 0 a 100 donde 60 es el mínimo de aprobación. Además de la nota debes darle un concepto a la tarea."
 @bp.route("/correction", methods=["POST"])
 def text_CU():
     data = request.json
-    tarea = data.get("tarea")
-    rubrica= data.get("rubrica")
-    #rubrica = data.get('rubrica', predeterminada)  # Usa rúbrica proporcionada o la predeterminada
-    if not tarea:
-        return jsonify({"error": "El texto de la tarea es requerido."}), 400
-    if not rubrica:
-        return jsonify({"error": "La rúbrica es requerida."}), 400
+    task = data.get("task")
+    rubric= data.get("rubric")
+    #rubric = data.get('rubric', default_rubric)  # If empty, uses default rubric
+    if not task:
+        return jsonify({"error": "The task text is required."}), 400
+    if not rubric:
+        return jsonify({"error": "The rubric is required."}), 400
 
     try:
+
         client = OpenAI()
         response = client.chat.completions.create(
             model="gpt-3.5-turbo-0125",
             messages=[
-                {"role": "system", "content": rubrica},
-                {"role": "user", "content": tarea},
+                {"role": "system", "content": rubric},
+                {"role": "user", "content": task},
             ],
             temperature=0.1,
             stream=False,
         )
         if response.choices:
-            assistant_message = response.choices[0].message.content  # segun documentaicon
-            return jsonify({"corrección": assistant_message})
+            assistant_message = response.choices[0].message.content
+            return jsonify({"correction": assistant_message})
         else:
-            return jsonify({"error": "No se pudo obtener una respuesta de la API de OpenAI."}), 500
+            return jsonify({"error": "Failed to get a response from the OpenAI API."}), 500
     except openai.error.OpenAIError as e:
         return jsonify({"error": str(e)}), 500
 
