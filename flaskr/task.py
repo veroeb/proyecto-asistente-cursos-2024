@@ -3,9 +3,13 @@ from flask import Blueprint, flash, request, jsonify
 import os
 from openai import OpenAI
 from flaskr.db import get_db
+import configparser
 
 bp = Blueprint("task", __name__, url_prefix="/task")  # Creates a blueprint named 'task'
-openai.api_key = os.getenv("OPENAI_API_KEY")
+
+config = configparser.ConfigParser()
+config.read('../config.ini')
+openai.api_key = config['openai']['api_key']
 
 
 # Rúbrica predeterminada
