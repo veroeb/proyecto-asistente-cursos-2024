@@ -65,7 +65,7 @@ Webgafia:
 1. https://pre-commit.com/
 
 
-# Testing the Text Correction Endpoint
+# 📝Testing the Text Correction Endpoint 📝
 
 1- Navigate to the flaskr folder using the command:
   ```
