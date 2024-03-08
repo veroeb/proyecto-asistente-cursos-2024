@@ -63,3 +63,24 @@ following command to update: `pre-commit autoupdate` and `pre-commit run --all-f
 
 Webgafia:
 1. https://pre-commit.com/
+
+
+# 📝Testing the Text Correction Endpoint 📝
+## watch the following video on YouTube for demo:
+[View Test Demonstration](https://youtu.be/KHVTzukxFfw)
+
+1- Navigate to the flaskr folder using the command:
+  ```
+  cd flaskr
+  ```
+
+2- Execute the following command to run the development server:
+  ```
+  flask --app __init__ run
+  ```
+3- On Windows:
+Open Command Prompt: Press Win + R, type cmd, and hit Enter.
+Send a POST Request: Copy and paste the following curl command into your Command Prompt. This command sends a task to the correction endpoint, along with a custom rubric for evaluation.
+  ```
+curl -X POST "http://localhost:5000/task/correction" -H "Content-Type: application/json" -d "{\"task\": \"Las palabras graves, también conocidas como palabras llanas, son aquellas en las que la sílaba tónica es la penúltima. Un ejemplo de palabra grave es árbol, donde la sílaba ár es la que lleva la mayor fuerza de voz. A diferencia de las palabras agudas, las graves no llevan tilde excepto cuando terminan en consonante que no sea n, s o vocal.\", \"rubric\": \"Eres un profesor de educación intermedia. Debes corregir la tarea que te pasa el alumno en una escala de 0 a 100 donde 60 es el mínimo de aprobación. Debes ser muy exigente con la nota, Además de la nota debes darle un concepto a la tarea. La respuesta esperada debe ser una nota y luego un comentario con observaciones. \"}"
+  ```
